@@ -133,10 +133,6 @@ dependencies {
     //Timber
     implementation 'com.jakewharton.timber:timber:4.7.1'
 
-    //firebase UI dependency
-    implementation 'com.firebaseui:firebase-ui-auth:5.0.0'
-    implementation 'com.google.firebase:firebase-ads:18.3.0'
-
     //matrial dialogs
     implementation 'com.afollestad.material-dialogs:core:3.1.1'
 

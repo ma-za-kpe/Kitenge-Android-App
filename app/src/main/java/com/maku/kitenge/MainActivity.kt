@@ -1,7 +1,7 @@
 package com.maku.kitenge
 
-import android.R
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.content.IntentSender.SendIntentException
 import android.os.Bundle
@@ -9,6 +9,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.annotation.Nullable
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.play.core.appupdate.AppUpdateInfo
 import com.google.android.play.core.appupdate.AppUpdateManagerFactory
@@ -18,12 +19,19 @@ import com.google.android.play.core.install.model.ActivityResult.RESULT_IN_APP_U
 import com.google.android.play.core.install.model.AppUpdateType.FLEXIBLE
 import com.google.android.play.core.install.model.InstallStatus
 import com.google.android.play.core.install.model.UpdateAvailability
+import com.maku.kitenge.databinding.ActivityMainBinding
+import timber.log.Timber
 
 
 class MainActivity : AppCompatActivity() {
 
+    //databinding
+    private lateinit var binding: ActivityMainBinding
+
+    val mContext: Context = KitengeApp.applicationContext()
+
     // Creates instance of the manager.
-    var appUpdateManager = AppUpdateManagerFactory.create(this)
+    var appUpdateManager = AppUpdateManagerFactory.create(mContext)
 
     // Returns an intent object that you use to check for an update.
     val appUpdateInfoTask = appUpdateManager.appUpdateInfo
@@ -31,6 +39,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         checkUpdate()
 
@@ -39,22 +48,21 @@ class MainActivity : AppCompatActivity() {
     private fun checkUpdate() {
 
         appUpdateInfoTask.addOnSuccessListener { appUpdateInfo ->
-            Log.d(
-                "appUpdateInfo :",
-                "packageName :" + appUpdateInfo.packageName() + ", " + "availableVersionCode :" + appUpdateInfo.availableVersionCode() + ", " + "updateAvailability :" + appUpdateInfo.updateAvailability() + ", " + "installStatus :" + appUpdateInfo.installStatus()
+            Timber.d(
+                "appUpdateInfo : packageName :" + appUpdateInfo.packageName() + ", " + "availableVersionCode :" + appUpdateInfo.availableVersionCode() + ", " + "updateAvailability :" + appUpdateInfo.updateAvailability() + ", " + "installStatus :" + appUpdateInfo.installStatus()
             )
             if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
                 && appUpdateInfo.isUpdateTypeAllowed(FLEXIBLE)
             ) {
                 requestUpdate(appUpdateInfo)
-                Log.d("UpdateAvailable", "update is there ")
+                Timber.d("UpdateAvailablepdate is there ")
             } else if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_NOT_AVAILABLE) {
-                Log.d("Update", "3")
+                Timber.d("Update 3")
                 notifyUser()
             } else {
                 Toast.makeText(this@MainActivity, "No Update Available", Toast.LENGTH_SHORT)
                     .show()
-                Log.d("NoUpdateAvailable", "update is not there ")
+                Timber.d("NoUpdateAvailable Update is not there ")
             }
 
         }
@@ -114,18 +122,18 @@ class MainActivity : AppCompatActivity() {
 
     private fun notifyUser() {
         val snackbar = Snackbar.make(
-            findViewById(R.id.message),
+            findViewById(R.id.snack),
             "An update has just been downloaded.",
             Snackbar.LENGTH_INDEFINITE
         )
         snackbar.apply {
             setAction("RESTART") { appUpdateManager.completeUpdate() }
-            setActionTextColor(resources.getColor(R.color.black))
+            setActionTextColor(resources.getColor(R.color.snackbar_action_text_color))
             show()
         }
 
         snackbar.setActionTextColor(
-            getResources().getColor(R.color.black));
+            getResources().getColor(R.color.snackbar_action_text_color));
         snackbar.show()
 
     }
@@ -141,7 +149,7 @@ class MainActivity : AppCompatActivity() {
                 // If the update is downloaded but not installed,
                 // notify the user to complete the update.
                 if (appUpdateInfo.installStatus() == InstallStatus.DOWNLOADED) {
-                    notifyUser();
+                    notifyUser()
                 }
             }
     }
