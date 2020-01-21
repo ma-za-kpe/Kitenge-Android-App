@@ -1,8 +1,12 @@
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
-
+apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+//annotation processor, you can use libraries such as Dagger or Data Binding in your Kotlin projects.
+apply plugin: 'kotlin-kapt'
+//works like intents
+apply plugin: "androidx.navigation.safeargs.kotlin"
 
 android {
     compileSdkVersion 29
@@ -21,6 +25,25 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    //to exclude the atomic functions module from the package and prevent warnings
+    packagingOptions {
+        exclude 'META-INF/atomicfu.kotlin_module'
+        exclude 'META-INF/DEPENDENCIES'
+    }
 }
 
 dependencies {
@@ -30,6 +53,103 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    implementation 'com.google.android.material:material:1.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    implementation 'com.hbb20:ccp:2.3.4'
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+    implementation 'androidx.preference:preference-ktx:1.1.0'
+
+    //cardview
+    implementation 'androidx.cardview:cardview:1.0.0'
+
+    //circle images
+    implementation 'de.hdodenhof:circleimageview:2.1.0'
+
+    //LikeButton
+    implementation 'com.github.jd-alexander:LikeButton:0.2.3'
+
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.4.0'
+
+    //BottomNavigationView customization
+    implementation 'com.github.ittianyu:BottomNavigationViewEx:2.0.2'
+
+    // Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.6.2'
+    // JSON Parsing
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
+
+    //    implementation 'com.jraska:console:0.4.3'
+    //    implementation 'com.jraska:console-timber-tree:0.4.3'
+
+    //Navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$rootProject.fragment"
+    implementation "androidx.navigation:navigation-ui-ktx:$rootProject.fragment"
+    implementation "androidx.navigation:navigation-fragment:$rootProject.fragment"
+    implementation "androidx.navigation:navigation-ui:$rootProject.fragment"
+
+    // Room components
+    implementation "androidx.room:room-runtime:$rootProject.roomVersion"
+    implementation "androidx.room:room-ktx:$rootProject.roomVersion"
+    kapt "androidx.room:room-compiler:$rootProject.roomVersion"
+    androidTestImplementation "androidx.room:room-testing:$rootProject.roomVersion"
+
+    // Lifecycle components
+    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.archLifecycleVersion"
+    kapt "androidx.lifecycle:lifecycle-compiler:$rootProject.archLifecycleVersion"
+    androidTestImplementation "androidx.arch.core:core-testing:$rootProject.androidxArchVersion"
+
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$rootProject.archLifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.archLifecycleVersion"
+
+    // ViewModel Kotlin support
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.archLifecycleVersion"
+
+    // Coroutines
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.coroutines"
+
+    // UI
+    implementation "com.google.android.material:material:$rootProject.materialVersion"
+
+    // Testing
+    androidTestImplementation "androidx.arch.core:core-testing:$rootProject.coreTestingVersion"
+
+    // KTX
+    implementation 'androidx.core:core-ktx:1.1.0'
+
+    //Picasso
+    def picassoVersion = "2.71828"
+    implementation "com.squareup.picasso:picasso:$picassoVersion"
+
+    //Timber
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    //firebase UI dependency
+    implementation 'com.firebaseui:firebase-ui-auth:5.0.0'
+    implementation 'com.google.firebase:firebase-ads:18.3.0'
+
+    //matrial dialogs
+    implementation 'com.afollestad.material-dialogs:core:3.1.1'
+
+    //lotti
+    implementation "com.airbnb.android:lottie:$lottieVersion"
+    implementation "androidx.core:core-ktx:1.1.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-rc03"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    //circular button
+    implementation 'com.github.markushi:circlebutton:1.1'
+
+    //google
+    implementation 'com.google.android.play:core:1.6.4'
 }
+//apply plugin: 'com.google.gms.google-services'  // Google Play services Gradle plugin
