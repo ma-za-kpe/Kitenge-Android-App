@@ -15,8 +15,8 @@ android {
         applicationId "com.maku.kitenge"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 1
-        versionName "iran"
+        versionCode 2
+        versionName "iraq"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

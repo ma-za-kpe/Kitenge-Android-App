@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
                 && appUpdateInfo.isUpdateTypeAllowed(FLEXIBLE)
             ) {
                 requestUpdate(appUpdateInfo)
-                Timber.d("UpdateAvailablepdate is there ")
+                Timber.d("UpdateAvailable update is there ")
             } else if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_NOT_AVAILABLE) {
                 Timber.d("Update 3")
                 notifyUser()
@@ -84,9 +84,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     //get a callback update status
-    override fun onActivityResult(
-        requestCode: Int,
-        resultCode: Int, @Nullable data: Intent?
+    override fun onActivityResult(requestCode: Int, resultCode: Int, @Nullable data: Intent?
     ) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == MY_REQUEST_CODE) {
