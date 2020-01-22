@@ -22,6 +22,10 @@ class KitengeApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        //timber
         Timber.plant(Timber.DebugTree())
+
+        //fonts
+
     }
 }

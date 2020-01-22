@@ -15,8 +15,8 @@ android {
         applicationId "com.maku.kitenge"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 2
-        versionName "iraq"
+        versionCode 4
+        versionName "syria"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -147,6 +147,13 @@ dependencies {
 
     //google
     implementation 'com.google.android.play:core:1.6.4'
+
+    //fonts
+    compile 'uk.co.chrisjenx:calligraphy:2.2.0'
+
+    //lotti
+    implementation 'com.airbnb.android:lottie:$lottieVersion'
+
 }
 //apply plugin: 'com.google.gms.google-services'  // Google Play services Gradle plugin
 

@@ -4,58 +4,67 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@drawable/a"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.MainActivity">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello World! Welcome to kitenge...."
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <LinearLayout
-            android:id="@+id/snack"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:padding="16dp"
+            android:id="@+id/user"
+            android:layout_width="wrap_content"
+            android:layout_height="426dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:background="@color/white"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.492"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView">
-
-            <Button
-                android:id="@+id/snackbar_action"
-                style="?attr/borderlessButtonStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|right|end"
-                android:layout_marginStart="@dimen/design_snackbar_extra_spacing_horizontal"
-                android:layout_marginLeft="@dimen/design_snackbar_extra_spacing_horizontal"
-                android:paddingLeft="@dimen/design_snackbar_padding_horizontal"
-                android:paddingTop="@dimen/design_snackbar_padding_vertical"
-                android:paddingRight="@dimen/design_snackbar_padding_horizontal"
-                android:paddingBottom="@dimen/design_snackbar_padding_vertical"
-                android:textColor="?attr/colorAccent"
-                android:visibility="gone" />
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/snackbar_text"
+                style="@style/textView"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="WELCOME TO KITENGE" />
+
+            <TextView
+                android:fontFamily="@font/dancingscriptregular"
+                style="@style/textView"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="everything African ..." />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:background="@color/white"
+            android:id="@+id/vendor"
+            android:layout_width="match_parent"
+            android:layout_height="188dp"
+            android:layout_marginTop="12dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/user"
+            app:layout_constraintVertical_bias="1.0">
+
+            <TextView
+                style="@style/textView"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:text="Become a vendor " />
+
+            <Button
+                android:layout_marginTop="32dp"
+                style="@style/Buttons"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|left|start"
-                android:layout_weight="1"
-                android:ellipsize="end"
-                android:gravity="center_vertical|right"
-                android:maxLines="@integer/design_snackbar_text_max_lines"
-                android:paddingLeft="@dimen/design_snackbar_padding_horizontal"
-                android:paddingTop="@dimen/design_snackbar_padding_vertical"
-                android:paddingRight="@dimen/design_snackbar_padding_horizontal"
-                android:paddingBottom="@dimen/design_snackbar_padding_vertical"
-                android:textAppearance="@style/TextAppearance.Design.Snackbar.Message" />
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:text="Sign Up" />
 
         </LinearLayout>
 
