@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "570817259809",
+    "firebase_url": "https://kitenge-f098e.firebaseio.com",
+    "project_id": "kitenge-f098e",
+    "storage_bucket": "kitenge-f098e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:570817259809:android:d5ae726d81075fe50c3660",
+        "android_client_info": {
+          "package_name": "com.maku.kitenge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "570817259809-4kdi7oaqmrqstsminss8psbrsa00oodt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.maku.kitenge",
+            "certificate_hash": "697abd721b4f7c7a1e2411d8116700b15dd9fbd3"
+          }
+        },
+        {
+          "client_id": "570817259809-ka9rrbhhjmeg8m8ut103e6gl722ctqm5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeLF3IDG6mwf2VkhmDPSNCgMaZ9J9TxjQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "570817259809-ka9rrbhhjmeg8m8ut103e6gl722ctqm5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
