@@ -10,15 +10,17 @@
         tools:context=".ui.MainActivity">
 
         <LinearLayout
-            android:padding="16dp"
             android:id="@+id/user"
             android:layout_width="wrap_content"
             android:layout_height="426dp"
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
+            android:layout_marginBottom="32dp"
             android:background="@color/white"
             android:orientation="vertical"
+            android:padding="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/vendor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.492"
             app:layout_constraintStart_toStartOf="parent"
@@ -31,11 +33,11 @@
                 android:text="WELCOME TO KITENGE" />
 
             <TextView
-                android:fontFamily="@font/dancingscriptregular"
                 style="@style/textView"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:text="everything African ..." />
+                android:text="everything African ...."
+                android:textSize="16dp" />
 
 
             <com.airbnb.lottie.LottieAnimationView
@@ -43,7 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="28dp"
                 android:layout_marginEnd="32dp"
                 android:scaleType="centerCrop"
                 app:lottie_autoPlay="true"
@@ -56,7 +58,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:text="Go Shopping" />
+                android:layout_marginTop="16dp"
+                android:background="@color/colorPrimaryDark"
+                android:padding="8dp"
+                android:text="Go Shopping"
+                android:textSize="24dp" />
 
         </LinearLayout>
 
@@ -80,12 +86,16 @@
                 android:text="Become a vendor " />
 
             <Button
+                android:padding="8dp"
+                android:background="@color/colorPrimaryDark"
                 android:layout_marginTop="16dp"
                 style="@style/Buttons"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:text="Sign Up" />
+                android:text="Sign Up"
+                android:textSize="24dp"
+                />
 
         </LinearLayout>
 
